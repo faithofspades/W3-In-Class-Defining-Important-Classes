@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Specifies the document type and language -->
+    <meta charset="UTF-8"> <!-- Defines character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsive design on different devices -->
+    <title>Defining and Importing a Class</title> <!-- Title of the webpage -->
+    <script type="module" src="script.js"></script> <!-- Links an external JavaScript module -->
+    <style>
+        /* Styles for the entire page */
+        body {
+            font-family: Arial, sans-serif; /* Sets font style */
+            margin: 20px; /* Adds space around the content */
+            padding: 20px; /* Adds space inside the body */
+            background-color: #f4f4f4; /* Light gray background */
+        }
+
+        /* Styles for code blocks */
+        pre {
+            background: #333; /* Dark background for contrast */
+            color: #fff; /* White text for readability */
+            padding: 10px; /* Adds space inside the box */
+            border-radius: 5px; /* Rounds the corners */
+            overflow-x: auto; /* Allows scrolling for long lines */
+        }
+
+        /* Styles for inline code snippets */
+        code {
+            font-family: "Courier New", monospace; /* Uses monospaced font */
+        }
+    </style>
+</head>
+<body>
+<!-- Main heading of the page -->
+<h1>Defining and Importing a Class</h1>
+
+<!-- Explanation of defining a class in an external file -->
+<p>To organize our code better, we can define the <code>Guitar</code> class in a separate JavaScript file and then import it into our main script.</p>
+
+<h2>Step 1: Create a Separate JavaScript File</h2>
+<p>Save the following code in a new file called <code>Guitar.js</code>:</p>
+
+<!-- Code example for defining a class in an external file -->
+<pre><code>// Guitar.js
+export class Guitar {
+    /**
+     * Creates a new Guitar instance.
+     * @param {string} make - The brand of the Guitar (e.g., "Gibson").
+     * @param {string} model - The model of the Guitar (e.g., "SG").
+     */
+    constructor(make, model) {
+        this.make = make; // Assigns the brand to the object
+        this.model = model; // Assigns the model to the object
+    }
+
+    // Method to simulate playing the guitar
+    shred() {
+        console.log("Shredding...");
+    }
+}</code></pre>
+
+<h2>Step 2: Import the Class in Your Main JavaScript File</h2>
+<p>Now, in your main JavaScript file (e.g., <code>script.js</code>), import the <code>Guitar</code> class and use it:</p>
+
+<pre><code>// script.js
+import { Guitar } from "./Guitar.js"; // Imports the Guitar class from Guitar.js
+
+// Creating instances of the Guitar class
+const myGuitar1 = new Guitar("Gibson", "Les Paul");
+const myGuitar2 = new Guitar("Fender", "Stratocaster");
+
+console.log(myGuitar1.make); // Output: Gibson
+console.log(myGuitar2.model); // Output: Stratocaster</code></pre>
+
+<h2>Step 3: Ensure Your HTML Supports Modules</h2>
+<p>In your HTML file, make sure you include the script with <code>type="module"</code>:</p>
+
+<pre><code>&lt;script type="module" src="script.js"&gt;&lt;/script&gt;</code></pre>
+
+<h2>Key Takeaways:</h2>
+<ul>
+    <li>Defining classes in external files makes code more modular and maintainable.</li>
+    <li>Use <code>export</code> to make the class available for import.</li>
+    <li>Use <code>import</code> to bring the class into another script.</li>
+    <li>HTML must use <code>type="module"</code> when importing JavaScript files that use <code>import/export</code>.</li>
+</ul>
+</body>
+</html>
